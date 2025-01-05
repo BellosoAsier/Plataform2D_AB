@@ -160,7 +160,7 @@ public class HeroKnight : MonoBehaviour {
         {
             // Reset timer
             m_delayToIdle = 0.05f;
-            m_animator.SetInteger("AnimState", 1);
+            m_animator.SetBool("Run", true);
         }
 
         //Idle
@@ -168,8 +168,7 @@ public class HeroKnight : MonoBehaviour {
         {
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
-                if(m_delayToIdle < 0)
-                    m_animator.SetInteger("AnimState", 0);
+                if(m_delayToIdle < 0) m_animator.SetBool("Run", false);
         }
     }
 
