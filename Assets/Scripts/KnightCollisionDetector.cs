@@ -24,12 +24,18 @@ public class KnightCollisionDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hasCollided = true;
+        if (!collision.CompareTag("Ladder"))
+        {
+            hasCollided = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hasCollided = false;
+        if (!collision.CompareTag("Ladder"))
+        {
+            hasCollided = false;
+        }
     }
 
     public void DisableCollisionDetector(float duration)

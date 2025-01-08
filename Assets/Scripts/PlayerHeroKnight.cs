@@ -7,6 +7,7 @@ public class PlayerHeroKnight : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D rb;
     private float inputH;
+    private float inputV;
     [SerializeField] private float velocityForce;
     [SerializeField] private float jumpForce;
     [SerializeField] private float comboTime;
@@ -25,6 +26,8 @@ public class PlayerHeroKnight : MonoBehaviour
     private int currentAttack = 0;
     private float durationBetweenAttacks = 0;
     private float rollCurrentTime;
+
+    private bool canUseLadder = false; 
 
     void Start()
     {
@@ -54,6 +57,8 @@ public class PlayerHeroKnight : MonoBehaviour
             hasGrounded = false;
             animator.SetBool("Grounded", false);
         }
+
+
 
         Movement();
 
@@ -120,6 +125,7 @@ public class PlayerHeroKnight : MonoBehaviour
     private void Movement()
     {
         inputH = Input.GetAxisRaw("Horizontal");
+        inputV = Input.GetAxisRaw("Vertical");
 
         if (inputH != 0)
         {
@@ -141,6 +147,27 @@ public class PlayerHeroKnight : MonoBehaviour
         if (!isRolling)
         {
             rb.velocity = new Vector2(inputH * velocityForce, rb.velocity.y);
+        }
+
+        if (canUseLadder)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, inputV * velocityForce);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            canUseLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            canUseLadder = false;
         }
     }
 }
