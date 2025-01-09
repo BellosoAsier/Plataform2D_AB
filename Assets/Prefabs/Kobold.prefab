@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5433185011208081077}
   - component: {fileID: 3712939205709287948}
   - component: {fileID: 4988204956565802408}
+  - component: {fileID: 2600555458180207719}
   - component: {fileID: 7459206941335522896}
   - component: {fileID: 4904569933237441209}
   - component: {fileID: 2487348982571913398}
@@ -127,6 +128,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   velocityMovement: 2
+--- !u!114 &2600555458180207719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418563077006773772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc215cd6069f4744489916cb85ca93e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  currentHealthValue: 60
 --- !u!114 &7459206941335522896
 MonoBehaviour:
   m_ObjectHideFlags: 0

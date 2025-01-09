@@ -8,10 +8,18 @@ public class PlayerHeroKnight : MonoBehaviour
     private Rigidbody2D rb;
     private float inputH;
     private float inputV;
+
+    [Header("Properties")]
     [SerializeField] private float velocityForce;
     [SerializeField] private float jumpForce;
     [SerializeField] private float comboTime;
     private Animator animator;
+
+    [Header("Attack Settings")]
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float attackDamage;
+    [SerializeField] private float attackRange;
+    [SerializeField] private LayerMask layerToHit;
 
     [Header("Sensors")]
     [SerializeField] private KnightCollisionDetector groundSensor;
@@ -26,7 +34,6 @@ public class PlayerHeroKnight : MonoBehaviour
     private int currentAttack = 0;
     private float durationBetweenAttacks = 0;
     private float rollCurrentTime;
-
     private bool canUseLadder = false; 
 
     void Start()
@@ -155,6 +162,21 @@ public class PlayerHeroKnight : MonoBehaviour
         }
     }
 
+    //Se ejecuta desde evento de animacion (Knight)
+    public void Attack()
+    {
+        Collider2D[] listColisions = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, layerToHit);
+
+        foreach (Collider2D collision in listColisions)
+        {
+            collision.gameObject.GetComponent<HealthSystem>().DamageCharacter(attackDamage);
+        }
+    }
+
+    //////////////
+    //COLISIONES//
+    //////////////
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
@@ -169,5 +191,11 @@ public class PlayerHeroKnight : MonoBehaviour
         {
             canUseLadder = false;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
     }
 }

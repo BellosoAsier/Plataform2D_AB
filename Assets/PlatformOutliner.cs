@@ -12,7 +12,7 @@ public class PlatformOutliner : MonoBehaviour
     [SerializeField] private float offset;                  // Desplazamiento hacia fuera
 
     [SerializeField] public Vector2[] pathPoints;                // Puntos del contorno de la plataforma específica
-    private int currentTargetIndex = 0;          // Índice del punto objetivo actual
+    //private int currentTargetIndex = 0;          // Índice del punto objetivo actual
 
     void Awake()
     {

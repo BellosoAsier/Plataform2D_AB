@@ -35,7 +35,6 @@ public class KoboldBehaviour : MonoBehaviour
             LookAtDestinationPoint(playerObject.position);
             MovementTowardsPlayer();
         }
-
     }
 
     private void LookAtDestinationPoint(Vector3 other)
@@ -80,5 +79,10 @@ public class KoboldBehaviour : MonoBehaviour
         }
         
         pointDestination = listPointsOfPath[index_listPointsOfPath].position;
+    }
+
+    public void SetListPointOfPath(Transform[] list)
+    {
+        listPointsOfPath = list;
     }
 }

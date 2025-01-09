@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public enum EnemyType { Kobold, Demon, Snail, Bee}
+public enum EnemyType { Kobold, Demon, Snail, Bee, Knight}
 public class RaycastDetection : MonoBehaviour
 {
     [Header("ENEMY TYPE")]
@@ -36,27 +36,28 @@ public class RaycastDetection : MonoBehaviour
         switch (enemyType)
         {
             case EnemyType.Kobold:
-                KoboldDetections();
+                if (target != null)
+                {
+                    KoboldDetections();
+                }
                 JumpDetection();
                 break;
 
             case EnemyType.Demon:
-                
+
                 break;
 
             case EnemyType.Snail:
-                
+
                 break;
 
             case EnemyType.Bee:
-                
+
                 break;
 
             default:
                 break;
         }
-
-        
     }
 
     private void KoboldDetections()
@@ -115,7 +116,6 @@ public class RaycastDetection : MonoBehaviour
                 canJump = false;
                 StartCoroutine(WaitSecondorJump());
             }
-            Debug.Log("Salto: " + hit.collider.name);
         }
     }
 

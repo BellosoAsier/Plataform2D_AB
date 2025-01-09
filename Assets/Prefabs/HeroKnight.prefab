@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4469944160747876982}
-  - component: {fileID: 3929511534220960161}
   - component: {fileID: 4578801028476782595}
-  m_Layer: 0
+  - component: {fileID: 2369253349838637635}
+  m_Layer: 7
   m_Name: GroundSensor
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,8 +33,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7796812581976708767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &3929511534220960161
-CircleCollider2D:
+--- !u!114 &4578801028476782595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339800657795306615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d56c6aae552d6243b5bd9160b75e877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &2369253349838637635
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -65,21 +77,50 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: -0.058829755, y: 0.10174016}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.05
---- !u!114 &4578801028476782595
-MonoBehaviour:
+  m_Size: {x: 0.6031317, y: 0.102204874}
+  m_EdgeRadius: 0
+--- !u!1 &1940278900610293299
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339800657795306615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d56c6aae552d6243b5bd9160b75e877, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8135083983867957800}
+  m_Layer: 7
+  m_Name: DetectionPoint_Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8135083983867957800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940278900610293299}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7796812581976708767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3549392634030456782
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,9 +132,9 @@ GameObject:
   - component: {fileID: 3177238780600735778}
   - component: {fileID: 7673145034759722447}
   - component: {fileID: 6371507311585717059}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallSensor_R2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,9 +212,9 @@ GameObject:
   - component: {fileID: 1242928762740057387}
   - component: {fileID: 2500911941270499486}
   - component: {fileID: 7966263569172217733}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallSensor_L2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,11 +291,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7796812581976708767}
   - component: {fileID: 1778018293552888778}
+  - component: {fileID: 1205973633535093799}
   - component: {fileID: 5017340478477888208}
   - component: {fileID: 8565675580216185460}
   - component: {fileID: 6921829104059329118}
   - component: {fileID: 188117820026217404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeroKnight
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -271,9 +313,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03, y: 1.5055, z: 0}
-  m_LocalScale: {x: 1.6452, y: 1.6452, z: 1.6452}
+  m_LocalScale: {x: 1.6015693, y: 1.6015693, z: 1.6015693}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8135083983867957800}
+  - {fileID: 8132139177156578006}
   - {fileID: 4469944160747876982}
   - {fileID: 2143220340661596527}
   - {fileID: 3177238780600735778}
@@ -294,13 +338,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityForce: 4
-  jumpForce: 20
+  jumpForce: 10
   comboTime: 1
+  attackPoint: {fileID: 8132139177156578006}
+  attackDamage: 20
+  attackRange: 0.7
+  layerToHit:
+    serializedVersion: 2
+    m_Bits: 64
   groundSensor: {fileID: 4578801028476782595}
   wallSensor_RightBottom: {fileID: 2738397680287907400}
   wallSensor_RightTop: {fileID: 6371507311585717059}
   wallSensor_LeftBottom: {fileID: 3436147418210197547}
   wallSensor_LeftTop: {fileID: 7966263569172217733}
+--- !u!114 &1205973633535093799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114346195055025236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc215cd6069f4744489916cb85ca93e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 4
+  currentHealthValue: 100
 --- !u!95 &5017340478477888208
 Animator:
   serializedVersion: 5
@@ -433,9 +497,40 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.72}
-  m_Size: {x: 0.66, y: 1.34}
+  m_Offset: {x: -0.0037204493, y: 0.6615383}
+  m_Size: {x: 0.5260768, y: 1.2230765}
   m_Direction: 0
+--- !u!1 &5794747771768611525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8132139177156578006}
+  m_Layer: 7
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8132139177156578006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5794747771768611525}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7796812581976708767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7683010315600652983
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,9 +542,9 @@ GameObject:
   - component: {fileID: 2143220340661596527}
   - component: {fileID: 9135133730299351687}
   - component: {fileID: 2738397680287907400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallSensor_R1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,9 +622,9 @@ GameObject:
   - component: {fileID: 2451272013609818392}
   - component: {fileID: 3752248589145545154}
   - component: {fileID: 3436147418210197547}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallSensor_L1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
