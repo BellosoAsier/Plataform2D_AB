@@ -193,6 +193,27 @@ public class PlayerHeroKnight : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MovePlatform"))
+        {
+            transform.parent = collision.transform;
+        }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            GetComponent<InventoryScript>().Money += 1;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MovePlatform"))
+        {
+            transform.parent = null;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

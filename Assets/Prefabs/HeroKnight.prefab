@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4469944160747876982}
   - component: {fileID: 4578801028476782595}
   - component: {fileID: 2369253349838637635}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GroundSensor
-  m_TagString: Player
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,9 +99,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8135083983867957800}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DetectionPoint_Player
-  m_TagString: Player
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,9 +132,9 @@ GameObject:
   - component: {fileID: 3177238780600735778}
   - component: {fileID: 7673145034759722447}
   - component: {fileID: 6371507311585717059}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: WallSensor_R2
-  m_TagString: Player
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,9 +212,9 @@ GameObject:
   - component: {fileID: 1242928762740057387}
   - component: {fileID: 2500911941270499486}
   - component: {fileID: 7966263569172217733}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: WallSensor_L2
-  m_TagString: Player
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 4
   currentHealthValue: 100
+  coinPrefab: {fileID: 7564795834745677010, guid: 8ff9b612654d6b94db5d94d16e5a7d13, type: 3}
 --- !u!95 &5017340478477888208
 Animator:
   serializedVersion: 5
@@ -509,9 +510,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8132139177156578006}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AttackPoint
-  m_TagString: Untagged
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -542,9 +543,9 @@ GameObject:
   - component: {fileID: 2143220340661596527}
   - component: {fileID: 9135133730299351687}
   - component: {fileID: 2738397680287907400}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: WallSensor_R1
-  m_TagString: Player
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,9 +623,9 @@ GameObject:
   - component: {fileID: 2451272013609818392}
   - component: {fileID: 3752248589145545154}
   - component: {fileID: 3436147418210197547}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: WallSensor_L1
-  m_TagString: Player
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

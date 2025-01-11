@@ -24,7 +24,11 @@ public class KnightCollisionDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Ladder"))
+        if (!collision.CompareTag("Ladder") )
+        {
+            hasCollided = true;
+        }
+        else if (!collision.CompareTag("Snail"))
         {
             hasCollided = true;
         }
@@ -33,6 +37,10 @@ public class KnightCollisionDetector : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Ladder"))
+        {
+            hasCollided = false;
+        }
+        else if (!collision.CompareTag("Snail"))
         {
             hasCollided = false;
         }

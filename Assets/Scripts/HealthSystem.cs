@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType { Kobold, Demon, Snail, Bee, Knight }
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] public EnemyType enemyType;
@@ -9,6 +10,7 @@ public class HealthSystem : MonoBehaviour
     private float maxHealthValue;
     [SerializeField] private float currentHealthValue;
     private Animator animator;
+    [SerializeField] private GameObject coinPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +21,7 @@ public class HealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DamageCharacter(20f);
-        }
+
     }
 
     public void DamageCharacter(float damageDealt)
@@ -66,7 +65,7 @@ public class HealthSystem : MonoBehaviour
                 if (currentHealthValue <= 0f)
                 {
                     animator.SetTrigger("Death");
-                    GetComponent<KoboldBehaviour>().enabled = false;
+                    GetComponent<SnailBehaviour>().enabled = false;
                 }
                 break;
         }
@@ -75,6 +74,7 @@ public class HealthSystem : MonoBehaviour
     //Se llama desde evento de animacion
     public void DestroyCharacter()
     {
+        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
