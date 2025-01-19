@@ -30,6 +30,7 @@ public class SnailBehaviour : MonoBehaviour
             if (onlyOnce)
             {
                 animator.SetTrigger("Hide");
+                GetComponent<CircleCollider2D>().enabled = false;
                 onlyOnce = false;
             }
         }
@@ -38,6 +39,7 @@ public class SnailBehaviour : MonoBehaviour
         {
             GetComponent<SnailRaycastDetection>().hideFlag = false;
             animator.SetTrigger("Show");
+            GetComponent<CircleCollider2D>().enabled = true;
         }
 
         if(canMove)

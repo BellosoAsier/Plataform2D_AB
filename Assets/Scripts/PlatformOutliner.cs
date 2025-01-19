@@ -29,21 +29,6 @@ public class PlatformOutliner : MonoBehaviour
 
     void Update()
     {
-        //if (pathPoints == null || pathPoints.Length == 0) return;
-
-        //// Mover al caracol hacia el punto objetivo actual
-        //Vector2 targetPoint = pathPoints[currentTargetIndex];
-        //Vector2 currentPosition = transform.position;
-
-        //// Movimiento lineal hacia el punto objetivo
-        //transform.position = Vector2.MoveTowards(currentPosition, targetPoint, speed * Time.deltaTime);
-
-        //// Verificar si llegó al punto objetivo
-        //if (Vector2.Distance(currentPosition, targetPoint) < 0.1f)
-        //{
-        //    // Pasar al siguiente punto
-        //    currentTargetIndex = (currentTargetIndex + 1) % pathPoints.Length;
-        //}
     }
 
     void GetPathPointsForSpecificTile()
