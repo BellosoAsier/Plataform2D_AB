@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public enum EnemyType { Kobold, Demon, Snail, Bee, Knight }
+public enum EnemyType { Kobold, Demon, Snail, Knight }
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] public EnemyType enemyType;
@@ -12,16 +14,21 @@ public class HealthSystem : MonoBehaviour
     private Animator animator;
     [SerializeField] private GameObject coinPrefab;
 
+    [SerializeField] private Image bar;
+
+    [SerializeField] private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        maxHealthValue = currentHealthValue;
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        bar.fillAmount = currentHealthValue / maxHealthValue;
     }
 
     public void DamageCharacter(float damageDealt)
@@ -30,7 +37,7 @@ public class HealthSystem : MonoBehaviour
         {
             case EnemyType.Kobold:
                 currentHealthValue -= damageDealt;
-
+                audioSource.Play();
                 if (currentHealthValue <= 0f)
                 {
                     animator.SetTrigger("Death");
@@ -38,30 +45,30 @@ public class HealthSystem : MonoBehaviour
                 }
                 break;
 
-            case EnemyType.Bee:
-                currentHealthValue -= damageDealt;
-                // Faltan cosas
-                break;
-
             case EnemyType.Knight:
                 currentHealthValue -= damageDealt;
                 animator.SetTrigger("Hurt");
-
+                audioSource.Play();
                 if (currentHealthValue <= 0f)
                 {
                     animator.SetTrigger("Death");
-                    Application.Quit();
+                    SceneManager.LoadSceneAsync("00_MenuScene");
                 }
                 break;
 
             case EnemyType.Demon:
                 currentHealthValue -= damageDealt;
-                // Faltan cosas
+                audioSource.Play();
+                if (currentHealthValue <= 0f)
+                {
+                    animator.SetBool("isDead", true);
+                }
+                animator.SetTrigger("Hurt");
                 break;
 
             case EnemyType.Snail:
                 currentHealthValue -= damageDealt;
-
+                audioSource.Play();
                 if (currentHealthValue <= 0f)
                 {
                     animator.SetTrigger("Death");
@@ -75,6 +82,17 @@ public class HealthSystem : MonoBehaviour
     public void DestroyCharacter()
     {
         GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        Debug.Log(coin);
         Destroy(gameObject);
+    }
+
+    public void SetHealthIncrease(float value)
+    {
+        currentHealthValue += value;
+
+        if (currentHealthValue > maxHealthValue)
+        {
+            maxHealthValue = currentHealthValue;
+        }
     }
 }

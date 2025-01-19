@@ -12,6 +12,11 @@ TagManager:
   - GoldKey
   - EmeraldKey
   - Coin
+  - Demon
+  - FireBall
+  - ReflectedFireBall
+  - Spikes
+  - HiddenZone
   layers:
   - Default
   - TransparentFX
@@ -24,8 +29,8 @@ TagManager:
   - PlayerCollisionLayer
   - Collectibles
   - LadderLayer
-  - 
-  - 
+  - FireBallLayer
+  - HiddenZoneLayer
   - 
   - 
   - 

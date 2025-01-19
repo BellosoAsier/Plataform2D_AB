@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public enum ColorKey { Sapphire, Gold, Ruby, Emerald}
+public enum ColorKey { Sapphire, Gold, Emerald}
 public class DoorBehaviour : MonoBehaviour
 {
     [SerializeField] private ColorKey key;
     [SerializeField] private int necessaryKeysAmount;
+    [SerializeField] private GameObject canvas;
 
     private GameObject player;
     private bool canOpen;
@@ -14,6 +16,7 @@ public class DoorBehaviour : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("HeroKnight");
+        canvas.transform.GetChild(0).GetComponent<TMP_Text>().text = necessaryKeysAmount.ToString();
     }
 
     // Update is called once per frame
@@ -34,17 +37,6 @@ public class DoorBehaviour : MonoBehaviour
                 break;
             case ColorKey.Gold:
                 if (necessaryKeysAmount == player.GetComponent<InventoryScript>().GoldKey_Count)
-                {
-                    canOpen = true;
-                    if (transform.childCount != 0)
-                    {
-                        Destroy(transform.GetChild(0).gameObject);
-                    }
-                    Destroy(GetComponent<BoxCollider2D>());
-                }
-                break;
-            case ColorKey.Ruby:
-                if (necessaryKeysAmount == player.GetComponent<InventoryScript>().RubyKey_Count)
                 {
                     canOpen = true;
                     if (transform.childCount != 0)

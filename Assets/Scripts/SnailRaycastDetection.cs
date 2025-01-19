@@ -76,7 +76,7 @@ public class SnailRaycastDetection : MonoBehaviour
 
             // Lanzamos el raycast
             RaycastHit2D hit = Physics2D.Raycast(transform.position, globalDirection, detectionRange, ~ignoreLayer);
-            Debug.DrawRay(transform.position, globalDirection * detectionRange, Color.Lerp(Color.red, Color.blue, i / (float)(rayCount - 1)));
+            Debug.DrawRay(transform.position, globalDirection * detectionRange, Color.red);
 
             if (hit.collider != null && hit.collider.CompareTag(tagName))
             {

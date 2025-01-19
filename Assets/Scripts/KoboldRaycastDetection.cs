@@ -36,10 +36,6 @@ public class KoboldRaycastDetection : MonoBehaviour
         JumpDetection();
     }
 
-    private void SnailDetections()
-    {
-        Vector3 directionToTarget = target.position - transform.position;
-    }
 
     private void KoboldDetections()
     {
