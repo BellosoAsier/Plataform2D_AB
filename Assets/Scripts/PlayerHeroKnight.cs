@@ -71,8 +71,12 @@ public class PlayerHeroKnight : MonoBehaviour
         if (isRolling)
             rollCurrentTime += Time.deltaTime;
 
-        if (rollCurrentTime > (8 / 14))
+        if (rollCurrentTime > (0.8f/1.4f))
+        {
             isRolling = false;
+            rollCurrentTime = 0;
+        }
+           
 
         if (!hasGrounded && Knight_Grounded())
         {
@@ -142,7 +146,7 @@ public class PlayerHeroKnight : MonoBehaviour
             isBlocking = false;
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling && !isWallSliding)
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling && !isWallSliding && hasGrounded)
         {
             isRolling = true;
             animator.SetTrigger("Roll");
@@ -175,6 +179,10 @@ public class PlayerHeroKnight : MonoBehaviour
         if (!isRolling)
         {
             rb.velocity = new Vector2(inputH * velocityForce, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(inputH * velocityForce * 2, rb.velocity.y);
         }
 
         if (canUseLadder)
